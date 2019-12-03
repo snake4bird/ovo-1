@@ -1,0 +1,61 @@
+{
+    "widgets": {
+        "root": {
+            "ctl": "box",
+            "items": {
+                "y": {
+                    "ctl": "box",
+                    "css": {
+                        "flex-direction": "column"
+                    },
+                    "items": {
+                        "i0": {
+                            "ctl": "n",
+                            "items": {}
+                        },
+                        "i1": {
+                            "ctl": "m"
+                        }
+                    }
+                },
+                "W1": {
+                    "name": "string input",
+                    "desc": "",
+                    "ctl": "string",
+                    "value": "string"
+                }
+            }
+        },
+        "n": {
+            "ctl": "box",
+            "items": {
+                "W0": {
+                    "name": "valign-box",
+                    "desc": "",
+                    "ctl": "box",
+                    "css": {
+                        "flex-direction": "column"
+                    },
+                    "items": {
+                        "x": {
+                            "ctl": "a"
+                        }
+                    }
+                }
+            }
+        },
+        "a": {
+            "ctl": "label",
+            "value": "label"
+        },
+        "m": {
+            "ctl": "q"
+        },
+        "q": {
+            "ctl": "string"
+        }
+    },
+    "columns": {},
+    "schemas": {},
+    "id": "ID1543400222724001"
+}

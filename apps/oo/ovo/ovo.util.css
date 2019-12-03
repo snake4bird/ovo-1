@@ -1,0 +1,29 @@
+
+div {
+	cursor: default;
+	-moz-user-select: none;
+	-webkit-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+pre {
+	cursor: text;
+	-moz-user-select: text;
+	-webkit-user-select: text;
+	-ms-user-select: text;
+	user-select: text;
+	margin-bottom: 0;
+	white-space: pre-wrap;
+	word-wrap: break-word;
+	background: transparent;
+	border: 0;
+}
+
+table {
+	cursor: default;
+	-moz-user-select: text;
+	-webkit-user-select: text;
+	-ms-user-select: text;
+	user-select: text;
+}

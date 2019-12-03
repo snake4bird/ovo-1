@@ -1,0 +1,67 @@
+{
+	widgets: {
+		root: {
+			ctl: "box",
+			items: {
+				"m":{
+					ctl: "nest",
+					datum: "m",
+				},
+			},
+		},
+		nest: {
+			ctl: "nest",
+			items: {
+				a: {
+				},
+				b: {
+				},
+				c: {
+				},
+			},
+		},
+	},
+	columns: {
+		m: {
+			type: "complex",
+			columns: {
+				a: "a",
+				b: "b",
+				c: "c",
+			},
+		},
+		a: {
+			type: "complex",
+			columns: {
+				A: {
+					type: "static",
+					val: "AAA",
+				},
+				B: "b",
+				C: "c",
+			},
+		},
+		b: {
+			type: "complex",
+			columns: {
+				A: "a",
+				B: {
+					type: "static",
+					val: "BBB",
+				},
+				C: "c",
+			},
+		},
+		c: {
+			type: "complex",
+			columns: {
+				A: "a",
+				B: "b",
+				C: {
+					type: "static",
+					val: "CCC",
+				},
+			},
+		},
+	},
+}

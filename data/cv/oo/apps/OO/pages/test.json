@@ -1,0 +1,28 @@
+{
+    "widgets": {
+        "root": {
+            "items": {
+                "W0": {
+                    "name": "normal-box",
+                    "desc": "",
+                    "ctl": "box",
+                    "key": "normal-box",
+                    "$WID": 1,
+                    "items": {
+                        "W1": {
+                            "name": "label",
+                            "desc": "",
+                            "ctl": "label",
+                            "value": "label",
+                            "key": "y",
+                            "$WID": 2
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "columns": {},
+    "schemas": {},
+    "id": "ID1542180121090007"
+}

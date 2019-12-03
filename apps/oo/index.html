@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="zh_CN">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<meta http-equiv="content-language" content="zh-CN" />
+<meta http-equiv="pragma" content="no-cache" />
+<title>ovo</title>
+<!-- 依赖的组件 -->
+<link rel="stylesheet" type="text/css" href="/js.com/bootstrap/css/bootstrap.css"></link>
+<link rel="stylesheet" type="text/css" href="/js.com/jquery/jquery-ui.min.css"></link>
+<link rel="stylesheet" type="text/css" href="/js.com/jsoneditor/jsoneditor.min.css"></link>
+<script src="/js.com/jsoneditor/jsoneditor.js"></script>
+<script src="/js.com/jquery/jquery.js"></script>
+<script src="/js.com/jquery/jquery-ui.min.js"></script>
+<script src="/js.com/lodash/lodash.min.js"></script>
+<!-- VUE -->
+<script src="/js.com/vue/vue.js"></script>
+<!-- file access rest api -->
+<script src="/far/js/far.js"></script>
+<!-- data access rest api -->
+<script src="ovo/dar.js"></script>
+<!-- linkage data accesser -->
+<script src="ovo/lda.js"></script>
+<!-- vue component loader -->
+<script src="/vue.loader/js/vue.loader.js"></script>
+<!-- ovo common utilities -->
+<link rel="stylesheet" href="ovo/ovo.util.css"></link>
+<script src="ovo/ovo.util.js"></script>
+<!-- ovo base vue component -->
+<link rel="stylesheet" href="ovo/ovo.base.css"></link>
+<script src="ovo/ovo.base.js"></script>
+<!-- ovo ctrl vue component -->
+<link rel="stylesheet" href="ovo/ovo.ctrl.css"></link>
+<script src="ovo/ovo.ctrl.js"></script>
+<!-- ovo app vue component -->
+<link rel="stylesheet" href="ovo/ovo.app.css"></link>
+<script src="ovo/ovo.app.js"></script>
+<style>
+body {
+	background-color: white;
+}
+div#ovo_container {
+	position: fixed;
+	left: 0px;
+	top: 0px;
+	right: 0px;
+	bottom: 0px;
+	display: block;
+	background-color: white;
+	border: 0px solid blue;
+	-moz-user-select: none;
+	-webkit-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	overflow: auto;
+}
+</style>
+</head>
+<body>
+	<div id="ovo_container"></div>
+</body>
+</html>

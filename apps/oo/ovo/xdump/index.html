@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="zh_CN">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>ovo</title>
+<!-- 依赖的组件 -->
+<link rel="stylesheet" href="../vendor/bootstrap/css/bootstrap.css"></link>
+<link rel="stylesheet" href="../vendor/jquery/jquery-ui.min.css"></link>
+<script src="../vendor/jquery/jquery.js"></script>
+<script src="../vendor/jquery/jquery-ui.min.js"></script>
+<script src="../vendor/lodash/lodash.min.js"></script>
+<script src="../vendor/vue/vue.js"></script>
+<!-- vue component loader -->
+<script src="vue.loader.js"></script>
+<!-- ovo common utilities -->
+<link rel="stylesheet" href="ovo.util.css"></link>
+<script src="ovo.util.js"></script>
+<!-- ovo base vue component -->
+<link rel="stylesheet" href="ovo.base.css"></link>
+<script src="ovo.base.js"></script>
+<!-- ovo ctrl vue component -->
+<link rel="stylesheet" href="ovo.ctrl.css"></link>
+<script src="ovo.ctrl.js"></script>
+<!-- ovo app vue component -->
+<link rel="stylesheet" href="ovo.app.css"></link>
+<script src="ovo.app.js"></script>
+<!-- ovo app custom script -->
+<link rel="stylesheet" href="../app/ovo.custom.css"></link>
+<script src="../app/ovo.custom.js"></script>
+<!-- -->
+<link rel="vc" href="ovo.designer.hta"></link>
+<script>
+	// custom model for application
+	var model = {
+		scene: "",
+		skin: "",
+		param: {},
+		page: {},
+		data: {}};
+	if (document.location.search) {
+		var re = /[?&]([^\=]+)=([^\&]*)/g;
+		var arr;  
+		while ((arr = re.exec(document.location.search)) != null) {
+			model.param[arr[1]] = arr[2];
+		}
+	}
+	if (model.param.data) {
+		model.data = ovo.load(model.param.data);
+	}
+	if (model.param.page) {
+		model.page = ovo.load(model.param.page);
+	}
+
+	window.onload = (function() {
+		ovo.render("#ovo_container", model);
+	});
+</script>
+<style>
+div#ovo_container {
+	position: fixed;
+	left: 0px;
+	top: 0px;
+	right: 0px;
+	bottom: 0px;
+	display: block;
+	background-color: white;
+	border: 0px solid blue;
+	-moz-user-select: none;
+	-webkit-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+</style>
+</head>
+<body>
+	<div id="ovo_container"></div>
+</body>
+</html>

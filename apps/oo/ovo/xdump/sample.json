@@ -1,0 +1,10 @@
+{
+	widgets: {
+		root: {
+			ctl: "cc-box",
+			css: {
+				backgroundColor: "#eeeeff",
+			},
+		}
+	}
+}

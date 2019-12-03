@@ -1,0 +1,33 @@
+{
+	widgets: {
+		"normal-box": {
+			name: "normal-box",
+			desc: "",
+			ctl: "box",
+		},
+		"jsoneditor": {
+			name: "json editor",
+			ctl: "jsoneditor",
+		},
+		"x": {
+			name: "valign-box",
+			desc: "",
+			ctl: "box",
+			css: {
+				"flex-direction": "column",
+			},
+		},
+		"y": {
+			name: "label",
+			desc: "",
+			ctl: "label",
+			value: "label",
+		},
+		"z": {
+			name: "string input",
+			desc: "",
+			ctl: "string",
+			value: "string",
+		},
+	},
+}

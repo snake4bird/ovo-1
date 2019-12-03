@@ -1,0 +1,22 @@
+[
+    {
+        "widgets": {
+            "root": {
+                "items": {
+                    "W1": {
+                        "ctl": "y"
+                    }
+                }
+            },
+            "y": {
+                "name": "label",
+                "desc": "",
+                "ctl": "label",
+                "value": "label"
+            }
+        },
+        "columns": {},
+        "schemas": {},
+        "id": "ID1543407070915001"
+    }
+]

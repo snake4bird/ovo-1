@@ -1,0 +1,91 @@
+{
+	session: {
+		id: 123,
+	},
+	dd: {
+		id: "TEST12345",
+		name: "test",
+		desc: "...这是测试数据...",
+		info: {
+			en: "English",
+			zh: "中文",
+		},
+		date: now.toString(),
+		logs: [
+			{
+				msg: "一、技术验证，完成",
+				sub: [
+					"简单统一的渲染render方式",
+					"自由切换的场景scene视图view",
+					"灵活复用的布局layout组件component",
+					"同步更新的数据data关联",
+					"定制方便的皮肤skin效果",
+				],
+			},
+			{
+				msg: "二、程序架构，....",
+				sub: [
+					"以 vue component 为基础",
+					"唯一接口 ovo.render, 完成",
+					"以 layout 为核心, 完成",
+					"view 关联 数据 data",
+					"box 关联 字段 field",
+					"ctl 关联 字段 field 属性 attr 值 value",
+				],
+			},
+			{
+				msg: "三、基本功能，....",
+				sub: [
+					{
+						msg: "容器组件 box",
+						sub: [
+							"Flex布局",
+							"Table布局",
+							"浮动定位",
+							"draggable spliter",
+						],
+					},
+					{
+						msg: "基本组件 ctl",
+						sub: [
+							"Label",
+							"Input",
+							"Text",
+							"check",
+							"radio",
+							"select",
+							"button",
+							"datetime",
+						],
+					},
+					{
+						msg: "扩展组件 ctl",
+						sub: [
+							"field",
+							"list",
+							"table",
+							"object",
+						],
+					},
+					{
+						msg: "组合组件 ctl",
+						sub: [
+							"可以自定义",
+						],
+					},
+				],
+			},
+			{
+				msg: "四、非功能优化，....",
+				sub: [
+					"浏览器兼容",
+					"性能",
+					"易用性"
+				],
+			},
+			{
+				msg: "五、功能扩展，....",
+			},
+		],
+	},
+}

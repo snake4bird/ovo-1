@@ -1,0 +1,100 @@
+{
+	props: {
+		session: {
+			id: {},
+		},
+		dd: {
+			id: {
+				type: "string",
+					// *!rel === mapset(string-class name, set[id])
+					// tag
+					// refer
+					// contain
+					// depend
+					// map(key{primitve}, value{primitve})
+					// set(primitve)
+					// list(primitve)
+					// +json*
+				require: true,
+				unique: true,
+				default: "A1",
+				label: "标识",
+				title: "DD的标识",
+				desc: "标识只能是字母数字的组合",
+			},
+			name: {
+				type: "string",
+				require: true,
+				default: "",
+			},
+			desc: {
+			},
+			date: {
+				type: "date",
+				require: false,
+				default: "2017-12-31",
+			},
+			info: {
+				zh: {
+					type: "string",
+				},
+				en: {
+				},
+			},
+			logs: {
+				type: "array",
+				// array类型的子属性
+				item: {
+					date: {},
+					time: {},
+					user: {},
+					robj: {},
+					msg: {},
+				}
+			}
+		},
+	},
+	"": {
+		id: {
+			type: "string",
+			require: false,
+			unique: false,
+			default: "string",
+			label: "string",
+			title: "string",
+			desc: "string",
+			permission: {},
+		},
+	},
+	class: {
+		name: "/a/b/c/d",
+		permission: {
+			//              readonly       readwrite
+			//
+			// schema       user/group     user/group
+			//
+			// data         user/group     user/group
+		},
+		props: {
+			id: {
+			//	permission: {
+			//                  readonly       readwrite
+			//
+			//     schema       user/group     user/group
+			//
+			//     data         user/group     user/group
+			// },
+			},
+			name: {
+			//	permission: {
+			//                  readonly       readwrite
+			//
+			//     schema       user/group     user/group
+			//
+			//     data         user/group     user/group
+			// },
+			},
+		}
+	},
+	
+}

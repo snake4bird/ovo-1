@@ -1,0 +1,16 @@
+[
+    {
+        "id": "ID1538216127407002",
+        "widgets": {
+            "y": {
+                "name": "label",
+                "desc": "",
+                "ctl": "label",
+                "value": "label"
+            },
+            "W3": {
+                "ctl": "y"
+            }
+        }
+    }
+]

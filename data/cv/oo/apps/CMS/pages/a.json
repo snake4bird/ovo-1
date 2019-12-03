@@ -1,0 +1,52 @@
+{
+    "widgets": {
+        "root": {
+            "ctl": "box",
+            "items": {
+                "x": {
+                    "ctl": "box",
+                    "key": "x"
+                },
+                "y": {
+                    "ctl": "box",
+                    "css": {
+                        "flex-direction": "column"
+                    },
+                    "items": {
+                        "n": {
+                            "ctl": "label",
+                            "value": "label",
+                            "key": "n"
+                        },
+                        "m": {
+                            "ctl": "string",
+                            "key": "m"
+                        }
+                    },
+                    "key": "y"
+                },
+                "W0": {
+                    "name": "valign-box",
+                    "desc": "",
+                    "ctl": "box",
+                    "css": {
+                        "flex-direction": "column"
+                    },
+                    "key": "x",
+                    "items": {
+                        "W1": {
+                            "name": "label",
+                            "desc": "",
+                            "ctl": "label",
+                            "value": "xxxxx",
+                            "key": "y"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "columns": {},
+    "schemas": {},
+    "id": "ID1538216127373003"
+}

@@ -1,0 +1,192 @@
+{
+	widgets: {
+		root: {
+			ctl: "box",
+			//datum: "infos",
+			items: [
+				"search",
+				"info",
+				"body",
+				{
+					ctl: "operation",
+					value: [
+						{key: "save", text:"保存"},
+						{key: "submit", text:"提交"},
+					],
+				},
+			],
+		},
+		search: {
+			ctl: "condition",
+			schema: "info",
+		},
+		info: {
+			ctl: "grid",
+			datum: "info",
+		//	distart: "0, 显示数据在数组中的起始位置",
+		//	dimax: "0, 显示数组中的数据条数，<=0 表示全部，每条数据复制一遍所有子部件(item widgets)",
+		//	dinew: "0, 为新建数据保留空白位置，-1表示不需要新建，dimax==1时，只能在没有数据的时候新建",
+			items: [
+				{
+					items: {
+						idlabel: {
+							ctl: "label",
+							datum: "idlabel",
+						},
+						idvalue: {
+							ctl: "string",
+							datum: "idvalue",
+						},
+					},
+				},
+				{
+					items: {
+						sslabel: {
+							ctl: "label",
+							datum: "sslabel",
+						},
+						ssvalue: {
+							ctl: "string",
+							datum: "ssvalue",
+						},
+					},
+				},
+				{
+					items: {
+						mmlabel: {
+							ctl: "label",
+							datum: "mmlabel",
+						},
+						mmvalue: {
+							ctl: "string",
+							datum: "mmvalue",
+						},
+					},
+				},
+				{
+					items: {
+						oanew: {
+							ctl: "operation",
+							value: "new",
+							schema: "info",
+						},
+						oaadd: {
+							ctl: "operation",
+							value: "add",
+						//	schema: "info", 缺省与设置了datum的最近祖级一致
+						},
+						oadel: {
+							ctl: "operation",
+							value: "del",
+						},
+					},
+				},
+			],
+		},
+		body: {
+			ctl: "test.root",
+			css: {
+				"flex-flow": "column",
+			},
+		},
+	},
+	columns: {
+		infos: {
+			type: "complex",
+			columns: {
+				"0": "info",
+			}
+		},
+		info: {
+			type: "complex",
+			transposition: true,
+			columns: {
+				"0": "infoid",
+				"1": "infoss",
+				"2": {
+					type: "complex",
+					transposition: true,
+					columns: {
+						mmlabel: "mmlabel",
+						mmvalue: "mmvalue",
+					},
+				},
+			},
+		},
+		infoid: {
+			type: "complex",
+			transposition: true,
+			columns: {
+				idlabel: "idlabel",
+				idvalue: "idvalue",
+			},
+		},
+		infoss: {
+			type: "complex",
+			transposition: true,
+			columns: {
+				sslabel: "sslabel",
+				ssvalue: "ssvalue",
+			},
+		},
+		idlabel: {
+			type: "schema",
+			obj: "info",
+			fld: "id",
+			attr: "label",
+		},
+		idvalue: {
+			type: "schema",
+			obj: "info",
+			fld: "id",
+		},
+		sslabel: {
+			type: "schema",
+			obj: "info",
+			fld: "ss",
+			attr: "label",
+		},
+		ssvalue: {
+			type: "schema",
+			obj: "info",
+			fld: "ss",
+		},
+		mmlabel: {
+			type: "schema",
+			obj: "info",
+			fld: "mm",
+			attr: "label",
+		},
+		mmvalue: {
+			type: "schema",
+			obj: "info",
+			fld: "mm",
+		},
+	},
+	schemas: {
+		info: {
+			src: "dats/test/data/info",
+			fields: {
+				id: {
+					type: "string",
+					require: true,
+					unique: true,
+					default: "A1",
+					label: "标识",
+					title: "DD的标识",
+					desc: "标识只能是字母数字的组合",
+				},
+				ss: {
+					type: "string",
+					label: "简称",
+					default: "ssssss",
+				},
+				mm: {
+					type: "string",
+					label: "名称",
+					default: "mmmmmm",
+				},
+			},
+		},
+	},
+}

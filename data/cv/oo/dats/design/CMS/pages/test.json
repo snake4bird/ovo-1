@@ -1,0 +1,88 @@
+{
+	widgets: {
+		root: {
+			ctl: "box",
+			items: {
+				"nest1":{
+					ctl: "nest",
+					placeholder: {
+						qq: "qq",
+						aa: "aa",
+					},
+					value: [{
+						qq: "问问1",
+						aa: "答答1",
+					},{
+						qq: "问问2",
+						aa: "答答2",
+					}],
+				},
+				"nest2":{
+					ctl: "nest",
+					datum: "obj",
+				},
+				"nest":{
+					ctl: "nest",
+					items: {
+						qq: {
+							datum: "subject",
+							placeholder: "subject",
+						},
+					},
+				},
+				"info":"info",
+				"body":"home.body",
+			},
+		},
+		info: {
+			ctl: "root",
+			items: {
+				add: {
+					ctl: "string",
+					datum: "title",
+					placeholder: "title",
+				}
+			},
+		},
+		nest: {
+			ctl: "box",
+			items: {
+				qq: {
+					ctl: "string",
+					datum: "question",
+					placeholder: "question",
+				},
+				aa: {
+					ctl: "string",
+					datum: "answer",
+					placeholder: "answer",
+				}
+			},
+		},
+	},
+	columns: {
+		title: {
+			type: "static",
+			val: "标题",
+		},
+		subject: {
+			type: "static",
+			val: "科目",
+		},
+		question: {
+			type: "static",
+			val: "问题",
+		},
+		answer: {
+			type: "static",
+			val: "回答",
+		},
+		obj: {
+			type: "static",
+			val: {
+				qq: "问问问",
+				aa: "答答答",
+			},
+		},
+	},
+}

@@ -1,0 +1,611 @@
+{
+    "info": {
+        "title": "界面编辑器"
+    },
+    "widgets": {
+        "root": {
+            "css": {
+                "border": "3px solid green",
+                "background-color": "#c0e0e0",
+                "align-items": "stretch",
+                "height": "100%"
+            },
+            "items": {
+                "i0": {
+                    "ctl": "pageselector",
+                    "key": "i0",
+                    "items": {}
+                },
+                "i1": {
+                    "ctl": "editor",
+                    "key": "i1",
+                    "items": {}
+                },
+                "i2": {
+                    "ctl": "info",
+                    "key": "i2"
+                }
+            }
+        },
+        "pageselector": {
+            "ctl": "hl-box",
+            "css": {
+                "flex-wrap": "wrap"
+            },
+            "items": {
+                "i0": {
+                    "ctl": "selector",
+                    "datum": "ooapps",
+                    "key": "i0"
+                },
+                "i1": {
+                    "ctl": "selector",
+                    "datum": "oopages",
+                    "key": "i1"
+                },
+                "i2": {
+                    "ctl": "operation",
+                    "css": {
+                        "border-color": "transparent"
+                    },
+                    "value": [
+                        {
+                            "key": "save",
+                            "text": "保存",
+                            "datum": [
+                                "ooapps",
+                                "oopages"
+                            ]
+                        }
+                    ],
+                    "key": "i2"
+                },
+                "W0": {
+                    "name": "normal-box",
+                    "css": {
+                        "flex": "1",
+                        "border-color": "transparent"
+                    },
+                    "desc": "",
+                    "ctl": "box",
+                    "key": "W0"
+                },
+                "i3": {
+                    "ctl": "skinchoice",
+                    "css": {
+                        "border-color": "transparent"
+                    },
+                    "key": "i3"
+                }
+            }
+        },
+        "skinchoice": {
+            "ctl": "choice",
+            "datum": "ooskin",
+            "css": {
+                "flex-wrap": "nowrap",
+                "flex": "1",
+                "justify-content": "flex-end"
+            },
+            "items": {
+                "W3": {
+                    "name": "label",
+                    "desc": "简化：把itmkey与name统一，tools的name具有全局唯一性，新增tool必须具有全局唯一标识，以避免重复tool，refer tool自动管理，与当前页有关",
+                    "ctl": "label",
+                    "value": "label"
+                }
+            }
+        },
+        "editor": {
+            "ctl": "page-eidtor",
+            "datum": "*",
+            "css": {
+                "border": "1px solid gray",
+                "minWidth": "100px",
+                "minHeight": "100px",
+                "flex": "1 1 100%",
+                "flex-flow": "row nowrap",
+                "align-items": "stretch"
+            },
+            "items": {
+                "i0": {
+                    "ctl": "vt-box",
+                    "css": {
+                        "border": "1px solid blue",
+                        "flex": "1 0 12%",
+                        "align-items": "stretch"
+                    },
+                    "items": {
+                        "i0": {
+                            "ctl": "toolbox",
+                            "datum": "base_tools",
+                            "css": {
+                                "border": "1px solid blue"
+                            },
+                            "key": "i0"
+                        },
+                        "i1": {
+                            "ctl": "toolbox",
+                            "datum": "app_tools",
+                            "css": {
+                                "border": "1px solid blue"
+                            },
+                            "key": "i1"
+                        },
+                        "i2": {
+                            "ctl": "toolbox",
+                            "datum": "page_tools",
+                            "css": {
+                                "border": "1px solid blue"
+                            },
+                            "key": "i2"
+                        }
+                    },
+                    "key": "i0"
+                },
+                "i1": {
+                    "ctl": "action",
+                    "css": {
+                        "border": "1px solid blue",
+                        "flex": "0 0 20px"
+                    },
+                    "key": "i1"
+                },
+                "i2": {
+                    "ctl": "designer",
+                    "datum": "editpage",
+                    "css": {
+                        "border": "1px solid blue",
+                        "flex": "1 1 70%"
+                    },
+                    "key": "i2"
+                },
+                "i3": {
+                    "ctl": "tab",
+                    "css": {
+                        "border": "1px solid blue",
+                        "flex": "1 0 18%"
+                    },
+                    "items": {
+                        "i0": {
+                            "ctl": "properties",
+                            "title": "属性",
+                            "datum": "selectedItem",
+                            "css": {
+                                "height": "100%",
+                                "flex": "1 1 100%",
+                                "align-items": "stretch"
+                            },
+                            "key": "i0"
+                        },
+                        "i00": {
+                            "ctl": "properties",
+                            "title": "样式",
+                            "datum": "selectedItem",
+                            "css": {
+                                "height": "100%",
+                                "flex": "1 1 100%",
+                                "align-items": "stretch"
+                            },
+                            "key": "i00"
+                        },
+                        "i01": {
+                            "ctl": "jsoneditor",
+                            "title": "JSON",
+                            "datum": "selectedItem",
+                            "css": {
+                                "height": "100%",
+                                "flex": "1 1 100%",
+                                "align-items": "stretch"
+                            },
+                            "key": "i01"
+                        },
+                        "i1": {
+                            "ctl": "properties",
+                            "title": "数据",
+                            "datum": "selectedItemDatum",
+                            "css": {
+                                "height": "100%",
+                                "flex": "1 1 100%",
+                                "align-items": "stretch"
+                            },
+                            "key": "i1"
+                        },
+                        "i2": {
+                            "ctl": "json-text-editor",
+                            "title": "PAGE",
+                            "datum": "editpage",
+                            "css": {
+                                "height": "100%",
+                                "flex": "1 1 100%",
+                                "align-items": "stretch"
+                            },
+                            "key": "i2"
+                        }
+                    },
+                    "key": "i3"
+                }
+            }
+        },
+        "action": {
+            "ctl": "operation",
+            "datum": "operations"
+        },
+        "info": {
+            "datum": "ovo-message"
+        },
+        "test": {
+            "ctl": "draggable-view",
+            "items": {
+                "i0": {
+                    "ctl": "search",
+                    "key": "i0"
+                },
+                "i1": {
+                    "ctl": "CMS.home.info",
+                    "key": "i1"
+                },
+                "i2": {
+                    "ctl": "operation",
+                    "value": [
+                        {
+                            "key": "save",
+                            "text": "保存"
+                        },
+                        {
+                            "key": "submit",
+                            "text": "提交"
+                        }
+                    ],
+                    "key": "i2"
+                }
+            }
+        },
+        "search": {
+            "ctl": "condition",
+            "schema": "info"
+        }
+    },
+    "columns": {
+        "selectedItem": {
+            "type": "static",
+            "val": {
+                "props": {}
+            }
+        },
+        "selectedItemDatum": {
+            "type": "static",
+            "val": {
+                "props": {}
+            }
+        },
+        "data": {
+            "type": "complex",
+            "columns": {
+                "operations": {
+                    "type": "refer",
+                    "key": "operations"
+                },
+                "base_tools": {
+                    "type": "refer",
+                    "key": "base_tools"
+                },
+                "app_tools": {
+                    "type": "refer",
+                    "key": "app_tools"
+                },
+                "page_tools": {
+                    "type": "refer",
+                    "key": "page_tools"
+                },
+                "selectedItem": {
+                    "type": "refer",
+                    "key": "selectedItem"
+                }
+            }
+        },
+        "operations": {
+            "type": "static",
+            "val": [
+                {
+                    "text": "+B",
+                    "title": "加入BaseWdiget",
+                    "action": "AddBaseWidget",
+                    "enabled": false
+                },
+                {
+                    "text": "+X",
+                    "title": "加入ExtWdiget",
+                    "action": "AddExtWidget",
+                    "enabled": false
+                },
+                {
+                    "text": "+R",
+                    "title": "加入ReferWdiget",
+                    "action": "AddReferWidget",
+                    "enabled": false
+                },
+                {
+                    "text": "^C",
+                    "title": "复制",
+                    "action": "Copy",
+                    "enabled": false
+                },
+                {
+                    "text": "^V",
+                    "title": "粘贴",
+                    "action": "Paste",
+                    "enabled": false
+                }
+            ]
+        },
+        "ovo-skin": {
+            "type": "static",
+            "val": {
+                "key": ""
+            },
+            "desc": "current ovo skin"
+        },
+        "ovo-message": {
+            "type": "static",
+            "val": "ready",
+            "desc": "current ovo message"
+        },
+        "ooskin": {
+            "type": "complex",
+            "columns": {
+                "options": "ooskinoptions",
+                "value": {
+                    "type": "refer",
+                    "key": "ovo-skin"
+                },
+                "css": {
+                    "type": "static",
+                    "val": {
+                        "selected": {
+                            "text-decoration": "underline",
+                            "font-weight": "bold"
+                        },
+                        "normal": {
+                            "text-decoration": "none",
+                            "font-weight": ""
+                        }
+                    }
+                }
+            }
+        },
+        "ooskinoptions": {
+            "type": "static",
+            "val": [
+                {
+                    "key": "red",
+                    "css": {
+                        "color": "red"
+                    },
+                    "text": "红色"
+                },
+                {
+                    "key": "green",
+                    "css": {
+                        "color": "green"
+                    },
+                    "text": "绿色"
+                },
+                {
+                    "key": "blue",
+                    "css": {
+                        "color": "blue"
+                    },
+                    "text": "蓝色"
+                },
+                {
+                    "key": "gray",
+                    "css": {
+                        "color": "gray"
+                    },
+                    "text": "灰色"
+                },
+                {
+                    "key": "",
+                    "css": {
+                        "color": ""
+                    },
+                    "text": "缺省"
+                }
+            ]
+        },
+        "ooapps": {
+            "type": "complex",
+            "columns": {
+                "editable": {
+                    "type": "static",
+                    "val": true
+                },
+                "withnew": {
+                    "type": "static",
+                    "val": {
+                        "id": "*new",
+                        "name": "*new",
+                        "value": "*new",
+                        "desc": "new app"
+                    }
+                },
+                "options": {
+                    "type": "schema",
+                    "obj": "ooapps"
+                },
+                "value": {
+                    "type": "refer",
+                    "key": "ooapp"
+                }
+            }
+        },
+        "ooapp": {
+            "type": "static",
+            "val": [
+                "*new"
+            ]
+        },
+        "oopages": {
+            "type": "complex",
+            "columns": {
+                "editable": {
+                    "type": "static",
+                    "val": true
+                },
+                "withnew": {
+                    "type": "static",
+                    "val": {
+                        "id": "*new",
+                        "name": "*new",
+                        "value": "*new",
+                        "desc": "new page"
+                    }
+                },
+                "options": {
+                    "type": "schema",
+                    "obj": "oopages"
+                },
+                "value": {
+                    "type": "refer",
+                    "key": "oopage"
+                }
+            }
+        },
+        "oopage": {
+            "type": "static",
+            "val": [
+                "*new"
+            ]
+        },
+        "page_design": {
+            "type": "complex",
+            "columns": {
+                "app": {
+                    "type": "refer",
+                    "key": "ooapp"
+                },
+                "page": {
+                    "type": "refer",
+                    "key": "oopage"
+                },
+                "design": {
+                    "type": "schema",
+                    "obj": "page_design"
+                }
+            }
+        },
+        "editpage": {
+            "type": "refer",
+            "key": "page_design"
+        },
+        "page_widgets": {
+            "type": "schema",
+            "obj": "page_design"
+        },
+        "base_widgets": {
+            "type": "schema",
+            "obj": "base_widgets"
+        },
+        "app_widgets": {
+            "type": "schema",
+            "obj": "app_widgets"
+        },
+        "page_tools": {
+            "type": "complex",
+            "columns": {
+                "descr": {
+                    "type": "static",
+                    "val": {
+                        "title": "refer widgets",
+                        "mode": "refer"
+                    }
+                },
+                "pattern": {
+                    "type": "refer",
+                    "key": "page_widgets"
+                }
+            }
+        },
+        "app_tools": {
+            "type": "complex",
+            "columns": {
+                "descr": {
+                    "type": "static",
+                    "val": {
+                        "title": "ext widgets",
+                        "mode": "editable"
+                    }
+                },
+                "pattern": {
+                    "type": "refer",
+                    "key": "app_widgets"
+                }
+            }
+        },
+        "base_tools": {
+            "type": "complex",
+            "columns": {
+                "descr": {
+                    "type": "static",
+                    "val": {
+                        "title": "base widgets",
+                        "mode": "base"
+                    }
+                },
+                "pattern": {
+                    "type": "refer",
+                    "key": "base_widgets"
+                }
+            }
+        }
+    },
+    "schemas": {
+        "ooapps": {
+            "src": "apps",
+            "fields": {
+                "id": {},
+                "name": {},
+                "value": {},
+                "desc": {}
+            }
+        },
+        "oopages": {
+            "src": "{ooapp}/pages",
+            "fields": {
+                "id": {},
+                "name": {},
+                "value": {},
+                "desc": {}
+            }
+        },
+        "page_design": {
+            "src": "{oopage}",
+            "fields": {
+                "widgets": {
+                    "default": {
+                        "root": {}
+                    }
+                },
+                "columns": {
+                    "default": {}
+                },
+                "schemas": {
+                    "default": {}
+                }
+            },
+            "ensure": "default"
+        },
+        "base_widgets": {
+            "src": "/oo/apps/OO/widgets/base.json",
+            "fields": {},
+            "ensure": "default"
+        },
+        "app_widgets": {
+            "src": "{ooapp}/widgets/ext.json",
+            "fields": {},
+            "ensure": "default"
+        }
+    },
+    "id": "ID1538987713336002"
+}

@@ -1,0 +1,356 @@
+{
+	schema: {
+		props: {
+			session: {
+				id: {},
+			},
+			dd: {
+				id: {
+					type: "string",
+						// *!rel === mapset(string-class name, set[id])
+						// tag
+						// refer
+						// contain
+						// depend
+						// map(key{primitve}, value{primitve})
+						// set(primitve)
+						// list(primitve)
+						// +json*
+					require: true,
+					unique: true,
+					default: "A1",
+					label: "标识",
+					title: "DD的标识",
+					desc: "标识只能是字母数字的组合",
+				},
+				name: {
+					type: "string",
+					require: true,
+					default: "",
+				},
+				desc: {
+				},
+				date: {
+					type: "date",
+					require: false,
+					default: "2017-12-31",
+				},
+				info: {
+					zh: {
+						type: "string",
+					},
+					en: {
+					},
+				},
+				logs: {
+					type: "array",
+					// array类型的子属性
+					item: {
+						date: {},
+						time: {},
+						user: {},
+						robj: {},
+						msg: {},
+					}
+				}
+			},
+		},
+		"": {
+			id: {
+				type: "string",
+				require: false,
+				unique: false,
+				default: "string",
+				label: "string",
+				title: "string",
+				desc: "string",
+				permission: {},
+			},
+		},
+		class: {
+			name: "/a/b/c/d",
+			permission: {
+				//              readonly       readwrite
+				//
+				// schema       user/group     user/group
+				//
+				// data         user/group     user/group
+			},
+			props: {
+				id: {
+				//	permission: {
+				//                  readonly       readwrite
+				//
+				//     schema       user/group     user/group
+				//
+				//     data         user/group     user/group
+				// },
+				},
+				name: {
+				//	permission: {
+				//                  readonly       readwrite
+				//
+				//     schema       user/group     user/group
+				//
+				//     data         user/group     user/group
+				// },
+				},
+			}
+		},
+		
+	},
+	data: {
+		session: {
+			id: 123,
+		},
+		dd: {
+			id: "TEST12345",
+			name: "test",
+			desc: "...这是测试数据...",
+			info: {
+				en: "English",
+				zh: "中文",
+			},
+			date: now.toString(),
+			logs: [
+				{
+					msg: "一、技术验证，完成",
+					sub: [
+						"简单统一的渲染render方式",
+						"自由切换的场景scene视图view",
+						"灵活复用的布局layout组件component",
+						"同步更新的数据data关联",
+						"定制方便的皮肤skin效果",
+					],
+				},
+				{
+					msg: "二、程序架构，....",
+					sub: [
+						"以 vue component 为基础",
+						"唯一接口 ovo.render, 完成",
+						"以 layout 为核心, 完成",
+						"view 关联 数据 data",
+						"box 关联 字段 field",
+						"ctl 关联 字段 field 属性 attr 值 value",
+					],
+				},
+				{
+					msg: "三、基本功能，....",
+					sub: [
+						{
+							msg: "容器组件 box",
+							sub: [
+								"Flex布局",
+								"Table布局",
+								"浮动定位",
+								"draggable spliter",
+							],
+						},
+						{
+							msg: "基本组件 ctl",
+							sub: [
+								"Label",
+								"Input",
+								"Text",
+								"check",
+								"radio",
+								"select",
+								"button",
+								"datetime",
+							],
+						},
+						{
+							msg: "扩展组件 ctl",
+							sub: [
+								"field",
+								"list",
+								"table",
+								"object",
+							],
+						},
+						{
+							msg: "组合组件 ctl",
+							sub: [
+								"可以自定义",
+							],
+						},
+					],
+				},
+				{
+					msg: "四、非功能优化，....",
+					sub: [
+						"浏览器兼容",
+						"性能",
+						"易用性"
+					],
+				},
+				{
+					msg: "五、功能扩展，....",
+				},
+			],
+		},
+	},
+	
+	layout: {
+		// 多个具体layout定义包含其中
+		// root layout定义
+		root: {
+			// default root ctl is view, default view is a box
+			// 不能指定class, class固定为 "ovo-<control name> ovo-<scene name>-<control name> <custom skin name>-ovo-<control name> <custom skin name>-ovo-<scene name>-<control name>"
+			// 控件自定义的样式
+			css: {
+				"background-color": "lightyellow",
+				"flex-flow": "column",
+				"justify-content": "center",
+				"align-items": "center",
+				"align-content": "center",
+			},
+			items: [
+				{
+					ctl: "table",
+					caption: [
+						"id",
+						"name",
+						"value",
+						"desc",
+					],
+					dataset: [
+						[123, "ABC", "AAA", "."],
+						[{ctl:"box", value:345, rowspan:2, height:"100%", css:{width:"100%", height:"100%", "align-items":"center",},}, "---", "xxx"],
+						["---", {ctl:"box", value:"colspan", colspan:2, css:{width:"100%", height:"100%", "justify-content":"center",},}],
+					],
+				},
+				{
+					ctl: "grid",
+					cols: 3,
+					items: [
+						{
+							ctl: "label",
+							value: "ID",
+						},
+						{
+							ctl: "label",
+							value: "NAME",
+						},
+						{
+							ctl: "label",
+							value: "VALUE",
+						},
+						{
+							ctl: "string",
+							value: "1",
+						},
+						{
+							ctl: "string",
+							value: "ver",
+						},
+						{
+							ctl: "string",
+							value: "0.1.0",
+						},
+						{
+							ctl: "string",
+							value: "2",
+						},
+						{
+							ctl: "string",
+							value: "title",
+						},
+						{
+							ctl: "string",
+							value: "objview",
+						},
+					],
+				},
+				{
+					// 除了根控件, ctl必须指定
+					ctl: "box",
+					// 控件自定义的样式
+					css: {
+						"background-color": "rgba(0,128,128,0.1)",
+						"flex-flow": "column",
+						"justify-content": "center",
+						"align-items": "stretch",
+						"align-content": "center",
+					},
+					// items是box的属性,用于指明box中包含的内容
+					items: [
+						{
+							ctl: "label",
+							css: {
+								"border": "1px dashed #eeaa00",
+								"border-radius": "0",
+								"color": "red",
+								"fontStyle": "italic",
+							},
+							// 基础控件属性, 包括 静态值 value 和 动态值 exprs
+							// 动态值优先
+							// 动态值结果为null或undefined时,使用静态值
+							// 动态值运行错误时，结果为错误信息
+							exprs: {
+								value: "JSON.stringify(session.id)",
+								input: "session.id=JSON.parse($value);",
+							},
+							value: "??????",
+						},
+						{
+							ctl: "label",
+							value: "ID",
+						},
+						{
+							ctl: "string",
+							data: "dd",
+							exprs: "id",
+						},
+						{
+							ctl: "string",
+							exprs: "dd.id",
+						},
+						{
+							// 自定义控件，自定义属性
+							// 自定义控件以Vue组件形式保存
+							ctl: "keyvalue",
+							data: "dd",
+							value: {
+								key: "Name",
+								value: "value",
+							},
+							exprsx: '{ key: "name", value: "input string", }',
+						},
+						{
+							ctl: "hidden",
+							exprs: "dd.info",
+						},
+						{
+						},
+						{
+							ctl: "box",
+							// 引用其它layout
+							// 只有box能引用其它layout
+							ref: "logs_layout",
+							data: "dd.logs",
+						},
+					],
+				},
+			],
+		},
+		logs_layout: {
+			items: [
+				{
+					ctl: "label",
+					exprs: "date + ' ' + time + ' : ' + user + ' ' + robj + ' ' + msg",
+				},
+				{
+					ctl: "button",
+					value: "+",
+					action: "addnew",
+				},
+				{
+					ctl: "button",
+					value: "-",
+					action: "delete",
+				},
+			],
+		},
+	},
+}

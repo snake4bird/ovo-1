@@ -1,0 +1,221 @@
+
+input:input-placeholder, textarea:input-placeholder { 
+	color: rgba(200,10,10,0.5); 
+}
+input:-webkit-input-placeholder, textarea:-webkit-input-placeholder { 
+	color: rgba(200,10,10,0.5); 
+}
+input:-moz-placeholder, textarea:-moz-placeholder { 
+	color: rgba(200,10,10,0.5); 
+}
+input:-ms-input-placeholder, textarea:-ms-input-placeholder { 
+	color: rgba(200,10,10,0.5); 
+}
+
+.ovo-bfd-view {
+	width: 100%;
+	height: 100%;
+}
+
+.ovo-bfdv-toolbar {
+	position: absolute;
+	left: 5px;
+	top: 5px;
+	right: 5px;
+	height: 30px;
+	display: flex;
+	background-color: white;
+	border: 1px solid blue;
+	z-index: 1;
+	align-items: center;
+}
+
+.ovo-bfdv-toolbar>* {
+	margin: 0px 2px 0px 2px;
+}
+
+.ovo-bfdv-toolbar>div:first-child {
+	width: 200px;
+}
+
+.ovo-bfdv-toolbar>div:last-child {
+}
+
+.ovo-bfdv-switch-view-btn {
+}
+
+.ovo-bfdv-toolbox {
+	position: absolute;
+	left: 5px;
+	top: 40px;
+	width: 200px;
+	bottom: 40px;
+	display: flex;
+	background-color: white;
+	border: 1px solid blue;
+	padding: 5px 5px 5px 5px;
+	z-index: 11;
+}
+
+.ovo-bfdv-mainbox {
+	position: absolute;
+	left: 210px;
+	top: 40px;
+	right: 310px;
+	bottom: 40px;
+	display: flex;
+	background-color: white;
+	border: 1px solid blue;
+	z-index: 9;
+	overflow: auto;
+}
+
+.ovo-bfdv-editor {
+	border: 0;
+	overflow: visible;
+}
+
+.ovo-bfdv-editor>.ovo-layout-root {
+	border: 1px dotted blue;
+	padding: 5px 5px 5px 5px;
+	overflow: visible;
+}
+
+.ovo-bfdv-editor>.ovo-layout-root:before {
+	border: 0;
+}
+
+.ovo-bfdv-editor>.ovo-layout-root .ovo-ctl {
+	padding: 5px 5px 5px 5px;
+}
+
+.ovo-bfdv-editor>.ovo-layout-root .ovo-box,.ovo-bfdv-editor>.ovo-layout-root .ovo-grid,.ovo-bfdv-editor>.ovo-layout-root .ovo-table {
+	border: 1px solid blue;
+	min-width: 20px;
+	min-height: 20px;
+}
+.ovo-bfdv-editor>.ovo-layout-root .ovo-box:before,.ovo-bfdv-editor>.ovo-layout-root .ovo-grid:before,.ovo-bfdv-editor>.ovo-layout-root .ovo-table:before {
+	position: absolute;
+	top: 5px;
+	left: 5px;
+	right: 5px;
+	bottom: 5px;
+	border: 1px dotted rgba(0,0,0,0.5);
+	content: '';
+}
+.ovo-bfdv-editor>.ovo-layout-root .ovo-grid>.ovo-ctl {
+	padding: 0px 0px 0px 0px;
+}
+.ovo-bfdv-editor>.ovo-layout-root .ovo-grid>.ovo-ctl>.ovo-ctl {
+	padding: 0px 0px 0px 0px;
+}
+
+.ovo-bfde-float-option {
+	position:absolute;
+	right:0px; top: 0px; width: 1em; height: 1em;
+	max-width: 100%;
+	max-height: 100%;
+	background-color: rgba(0,0,204,0.2);
+	border: 1px solid gray;
+	border-radius: 10px;
+	overflow: visible;
+	color: #111111;
+}
+
+.ovo-bfde-float-option:hover {
+	background-color: rgba(204,0,0,0.2);
+	border: 2px solid gray;
+}
+
+.ovo-bfdv-propbox {
+	position: absolute;
+	right: 5px;
+	top: 40px;
+	width: 300px;
+	bottom: 40px;
+	display: flex;
+	background-color: white;
+	border: 1px solid blue;
+	z-index: 1;
+}
+
+.ovo-bfdv-infobox {
+	position: absolute;
+	left: 5px;
+	right: 5px;
+	height: 30px;
+	bottom: 5px;
+	display: inline-block;
+	background-color: white;
+	border: 1px solid blue;
+	z-index: 1;
+	overflow: auto;
+}
+
+.ovo-bfdv-widget {
+	min-height: 30px;
+}
+
+.ovo-bfdw-tool {
+	white-space: nowrap;
+}
+
+.ovo-bfdw-drag {
+	display: none;
+}
+
+.ovo-bfdw-tmpl {
+	display: none;
+}
+
+.ovo-bfde-label {
+}
+
+.ovo-bfde-label label {
+	border: 0px;
+	background-color: transparent;
+}
+
+.ovo-bfde-ctl {
+	padding: 5px 5px 5px 5px;
+}
+
+.red-ovo-box {
+	border-color: red;
+}
+.red-ovo-ctl,.red-ovo-ctl input{
+	background-color: rgba(250, 220, 220, 0.5);
+}
+
+.green-ovo-box {
+	border-color: green;
+}
+.green-ovo-ctl,.green-ovo-ctl input,.green-ovo-ctl textarea {
+	background-color: rgba(220, 250, 220, 0.5);
+}
+
+.blue-ovo-box {
+	border-color: blue;
+}
+.blue-ovo-ctl,.blue-ovo-ctl input,.blue-ovo-ctl textarea {
+	background-color: rgba(220, 220, 250, 0.5);
+}
+
+.gray-ovo-box {
+	border-color: gray;
+}
+.gray-ovo-ctl,.gray-ovo-ctl input,.gray-ovo-ctl textarea {
+	background-color: rgba(220, 220, 220, 0.5);
+}
+
+
+.ovo-layout-root {
+	background-color: rgba(240, 240, 250, 0.5);
+}
+.ovo-datum {
+	background-color: rgba(0, 100, 0, 0.1);
+}
+.ovo-field {
+	background-color: rgba(0, 0, 100, 0.1);
+}
+

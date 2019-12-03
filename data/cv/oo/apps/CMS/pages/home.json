@@ -1,0 +1,197 @@
+{
+	info: {
+		title: "测试界面",
+	},
+	widgets: {
+		root: {
+			ctl: "box",
+			//datum: "infos",
+			items: [
+				"search",
+				"info",
+				"body",
+				{
+					ctl: "operation",
+					value: [
+						{key: "save", text:"保存", datum: "info"},
+						{key: "submit", text:"提交", datum: "mmvalue"},
+					],
+				},
+			],
+		},
+		search: {
+			ctl: "condition",
+			schema: "info",
+		},
+		info: {
+			ctl: "grid",
+			datum: "info",
+		//	distart: "0, 显示数据在数组中的起始位置",
+		//	dimax: "0, 显示数组中的数据条数，<=0 表示全部，每条数据复制一遍所有子部件(item widgets)",
+		//	dinew: "0, 为新建数据保留空白位置，-1表示不需要新建，dimax==1时，只能在没有数据的时候新建",
+			items: [
+				{
+					field: "0",
+					items: {
+						idlabel: {
+							ctl: "label",
+							datum: "idlabel",
+						},
+						idvalue: {
+							ctl: "string",
+							datum: "idvalue",
+						},
+					},
+				},
+				{
+					field: "1",
+					items: {
+						sslabel: {
+							ctl: "label",
+							datum: "sslabel",
+						},
+						ssvalue: {
+							ctl: "string",
+							datum: "ssvalue",
+						},
+					},
+				},
+				{
+					field: "2",
+					items: {
+						mmlabel: {
+							ctl: "label",
+							datum: "mmlabel",
+						},
+						mmvalue: {
+							ctl: "string",
+							datum: "mmvalue",
+						},
+					},
+				},
+				{
+					items: {
+						oanew: {
+							ctl: "operation",
+							value: "new",
+							schema: "info",
+						},
+						oaadd: {
+							ctl: "operation",
+							value: "add",
+						//	schema: "info", 缺省与设置了datum的最近祖级一致
+						},
+						oadel: {
+							ctl: "operation",
+							value: "del",
+						},
+					},
+				},
+			],
+		},
+		body: {
+			ctl: "test.root",
+			css: {
+				"flex-flow": "column",
+			},
+		},
+	},
+	columns: {
+		infos: {
+			type: "complex", // object
+			columns: {        // fields
+				"0": "info",   // key: value
+			}
+		},
+		info: {
+			type: "combine",          // array
+			columns: {                  // fields of object in array
+				"0": "infoid",             // key: value
+				"1": {
+					type: "refer",
+					key: "infoss",
+				},
+				"2": {
+					type: "combine",
+					columns: {
+						mmlabel: "mmlabel",
+						mmvalue: "mmvalue",
+					},
+				},
+			},
+		},
+		infoid: {
+			type: "combine",
+			columns: {
+				idlabel: "idlabel",
+				idvalue: "idvalue",
+			},
+		},
+		infoss: {
+			type: "combine",
+			columns: {
+				sslabel: "sslabel",
+				ssvalue: "ssvalue",
+			},
+		},
+		idlabel: {
+			type: "schema",
+			obj: "info",
+			fld: "id",
+			attr: "label",
+		},
+		idvalue: {
+			type: "schema",
+			obj: "info",
+			fld: "id",
+		},
+		sslabel: {
+			type: "schema",
+			obj: "info",
+			fld: "ss",
+			attr: "label",
+		},
+		ssvalue: {
+			type: "schema",
+			obj: "info",
+			fld: "ss",
+		},
+		mmlabel: {
+			type: "schema",
+			obj: "info",
+			fld: "mm",
+			attr: "label",
+		},
+		mmvalue: {
+			type: "schema",
+			obj: "info",
+			fld: "mm",
+		},
+	},
+	schemas: {
+		info: {
+			src: "dats/test/data/info",
+			fields: {
+				id: {
+					type: "string",
+					require: true,
+					unique: true,
+					default: "A1",
+					label: "标识",
+					title: "DD的标识",
+					desc: "标识只能是字母数字的组合",
+				},
+				ss: {
+					type: "string",
+					label: "简称",
+					default: "ssssss",
+				},
+				mm: {
+					type: "string",
+					label: "名称",
+					default: "mmmmmm",
+				},
+			},
+		},
+	},
+}

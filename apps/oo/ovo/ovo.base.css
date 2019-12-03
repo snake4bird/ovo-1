@@ -1,0 +1,113 @@
+
+.ovo-ctl {
+	position: relative;
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: flex-start;
+	align-items: flex-start;
+	align-content: flex-start;
+	border: 1px solid transparent;
+	padding: 2px 2px 2px 2px;
+	margin: 0px 0px 0px 0px;
+	order: 0;
+	flex: 0 0 auto;
+	align-self: auto;
+	overflow: visible;
+}
+
+.ovo-ctl>input[readonly] {
+	cursor: default;
+}
+
+.ovo-box {
+	border: 1px solid gray;
+}
+
+.ovo-view {
+	border: 0px solid gray;
+}
+
+.ovo-grid {
+	border: 1px solid gray;
+	display: table;
+}
+.ovo-grid>.ovo-ctl {
+	display: table-row;
+}
+.ovo-grid>.ovo-ctl>.ovo-ctl {
+	display: table-cell;
+}
+
+.ovo-table {
+	border: 1px solid blue;
+}
+
+.ovo-layout {
+	border: 0px solid gray;
+	padding: 0px 0px 0px 0px;
+	width: 100%;
+	height: 100%;
+	overflow: auto;
+}
+
+.ovo-layout-root {
+	flex: 1 0 auto;
+	align-self: auto;
+	min-width: 100%;
+	min-height: 100%;
+	width: auto;
+	height: auto;
+	flex-flow: column nowrap;
+	justify-content: flex-start;
+	align-items: flex-start;
+	align-content: flex-start;
+}
+
+
+.ui-dialog-no-close .ui-dialog-titlebar-close {
+  display: none;
+}
+
+/* --------- special base css --------- */
+/* items vertical - align middle */
+.ovo-vm-box {
+	flex-flow: column;
+	justify-content: center;
+	align-items: center;
+}
+
+/* items vertical - align top */
+.ovo-vt-box {
+	flex-flow: column;
+	justify-content: flex-start;
+	align-items: flex-start;
+}
+
+/* items vertical - align bottom */
+.ovo-vb-box {
+	flex-flow: column;
+	justify-content: flex-end;
+	align-items: flex-end;
+}
+
+/* items horizontal - align center */
+.ovo-hc-box {
+	flex-flow: row;
+	justify-content: center;
+	align-items: center;
+}
+
+/* items horizontal - align left */
+.ovo-hl-box {
+	flex-flow: row;
+	justify-content: flex-start;
+	align-items: flex-start;
+}
+
+/* items horizontal - align right */
+.ovo-hr-box {
+	flex-flow: row;
+	justify-content: flex-end;
+	align-items: flex-end;
+}
+

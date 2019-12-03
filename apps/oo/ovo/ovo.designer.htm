@@ -1,0 +1,18 @@
+
+<code>
+	<style>
+	</style>
+	<template>
+		<ovo-view @mousemove.native="mousemove" @mouseout.native="mouseout">
+			<ovo-bfdv-toolbar :view="view" :skin="skin" :data="viewData" @change="viewChange" @loadjson="loadJson"></ovo-bfdv-toolbar>
+			<ovo-bfdv-toolbox></ovo-bfdv-toolbox>
+			<ovo-bfdv-mainbox :skin="vskin || skin" :scene="viewData[view].scene" :page="viewData[view].page" :data="viewData[view].data" @change="dataChange" @dragging="dragging"></ovo-bfdv-mainbox>
+			<ovo-bfdv-propbox :data="vdata" @change="propChange"></ovo-bfdv-propbox>
+			<ovo-bfdv-infobox>{{message}}</ovo-bfdv-infobox>
+			<div id="ddhelper" style="position:fixed;left:100vw;top:100vh;z-index:9999;"></div>
+		</ovo-view>
+	</template>
+	<script id="ovo-bfd-view">
+	{}
+	</script>
+</code>

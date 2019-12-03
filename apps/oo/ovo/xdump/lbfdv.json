@@ -1,0 +1,323 @@
+{
+	vue component 规范
+	
+	统一事件,
+	参数e中包含改变的数据对象, key与组件传入参数props的key一致, 可以包含多个数据对象
+	me.$emit("change", e);
+	
+
+
+
+     page  => layout =>  column  ,  url             
+	 
+	 mapping  ==> page2page , page2class  
+	 
+	 table => field
+	 
+	 data  
+	 
+	 合同[客户、产品]
+	
+	
+	
+	table.column
+	class.property
+	record.field
+	element.attribute
+	node.profile
+	system.config
+	
+	REST
+	外部访问
+	页面显示:
+		"http[s]://host:port/app/page.a.b.c" 
+		"http[s]://host:port/app?page=a.b.c" 
+		"http[s]://host:port/app?page=a.b.c&data=a.b.c.json" 
+		"index.html?page=a.b.c" 
+		"index.html?page=a.b.c&data=a.b.c.json" 
+	页面配置json: 
+		"http[s]://host:port/app/ovo/page.a.b.c"
+		"http[s]://host:port/app/ovo?page"
+		"http[s]://host:port/app/ovo?page=a.b.c" 
+		"a.b.c.json"
+		局部配置json: 
+			column:
+				"http[s]://host:port/app/ovo/page/columns"
+				"http[s]://host:port/app/ovo?page/columns"
+				"http[s]://host:port/app/ovo/page/columns/columnN"
+				"http[s]://host:port/app/ovo?page/columns/columnN"
+			widget:
+				"http[s]://host:port/app/ovo/page/widgets"
+				"http[s]://host:port/app/ovo?page/widgets"
+				"http[s]://host:port/app/ovo/page/widgets/widgetN"
+				"http[s]://host:port/app/ovo?page/widgets/widgetN"
+			data:
+				"http[s]://host:port/app/ovo/page/data"
+				"http[s]://host:port/app/ovo?page/data"
+				"http[s]://host:port/app/ovo/page/data/chunkN"
+				"http[s]://host:port/app/ovo?page/data/chunkN"
+			schema:
+				"http[s]://host:port/app/ovo/page/schema"
+				"http[s]://host:port/app/ovo?page/schema"
+				"http[s]://host:port/app/ovo/page/schema/classN"
+				"http[s]://host:port/app/ovo?page/schema/classN"
+				"http[s]://host:port/app/ovo/page/schema/classN/fields/fieldN"
+				"http[s]://host:port/app/ovo?page/schema/classN/fields/fieldN"
+				"http[s]://host:port/app/ovo/page/schema/classN/fields/fieldN"
+				"http[s]://host:port/app/ovo?page/schema/classN/fields/fieldN"
+			data:
+				"http[s]://host:port/app/ovo/page/data"
+				"http[s]://host:port/app/ovo?page/data"
+				"http[s]://host:port/app/ovo/page/data/chunkN"
+				"http[s]://host:port/app/ovo?page/data/chunkN"
+	内部访问
+	url: "page"
+	url: "page/columns/columnN"
+	url: "page/widgets/widgetN"
+	
+	
+	page: {
+		name: "a.b.c.url",
+		widgets: {
+			root: {
+				ctl: "ctl | box | view | grid | table | string | label | ...",
+				css: {
+					"style-k": "style-v",
+				},
+				datum: "columnX => columns.columnN => page.columns.columnN | schema.classN.fields.fieldN[.attrN] | data.chunkN[i].keyN",
+				value: "static data | default value",
+				exprs: "express for display",
+				assem: "express for input",
+				items: [
+					{
+						widget: "simple || page.url/widgets/widgetN", //引用其它page中的widget定义
+						field: "colunmX",
+						items: [],
+					},
+				],
+			},
+			simple: {
+			},
+		},
+		columns: {
+			columnN: {
+				type: "page.columns.columnN | schema.classN.fields.fieldN[.attrN] | data.chunkN[i].keyN | static.data.value",
+				ref: "page.url | schema.class | data.chunk",
+				col: "column in reffer by type",
+				rel: "tag | reffer | contain | depend",
+				grp: "refference group id",
+				value: { default: "static data | default value" },
+			},
+			column1: {
+				type: "reffer(page reffer) | layout | schema | mapping | data | info"
+				url: "page.url",
+				grp: "group reffer id".
+				col: "column in reffer page"
+			},
+			column2: {
+				url: "class.url link to schema"
+				grp: "group reffer id".
+				col: "class.field in schema"
+			},
+		},
+		schema: {
+			classN: {
+				name: "table or class define or object prototype",
+				infos: {},
+				fields: {
+					fieldN: {
+						attrN: {},
+						type: "reffer[class]",
+					}
+				}
+			},
+			user: {
+				desc: "table or class define or object prototype",
+				fields: {
+					id: {
+						type: "string",
+					},
+					name: {
+						type: "string",
+						label: "用户",
+					},
+				}
+			},
+			owner: {
+				fields: {
+					id: {
+						ref: "class.user.id"
+					},
+					name: {
+						ref: "class.user.name"
+						label: "所有者",
+					},
+				}
+			},
+			vendor: {
+				fields: {
+					id: {
+						ref: "class.user.id"
+					},
+					name: {
+						ref: "class.user.name"
+						label: "供应商",
+					},
+				}
+			},
+		},
+	},
+	data: {
+		chunkN#(records#objects#<=schema.classN): [
+			{
+				keyN#(<=schema.fieldN): valueN
+			}
+		],
+		owner: [
+			{
+				id: "",
+				name: ""
+			}
+		],
+		vendor: [
+			{
+				id: "",
+				name: ""
+			}
+		],
+	},
+	 
+	//           page                           schema                               只读
+	// 用于显示控件布局及静态内容     用于同步数据表达和自动生成layout或data样例
+	//           data                                                                  读写
+	// 用于存取动态内容
+	//
+	// 与数据显示相关的schema信息将冗余保存在layout中，也是layout能够生成部分schema信息的依据
+	// 在编辑layout、schema的过程中，layout、schema将作为data，当前layout、schema为编辑器特定的layout、schema
+	//
+	// layout包含多个widget定义
+	// render过程从root widget开始，找不到root则认为layout本身就是root widget
+	//
+	// layout定义所有内容都有缺省值
+	// 最简的layout可以只是一个字符串，表示root widget的ctl
+	// 缺省的layout（undefined，null, "", {}）是一个最基本的view
+	//
+	root: {
+		// widget定义包含一个control和多个子widget定义
+		// ctl:    指定 ovo control name
+		//         以ovo-开头的vue component name，去掉ovo-后的名字
+		//         root widget，缺省为view, 缺省view定义只是一个box
+		//         非root ctl，缺省为box
+		//         指定contorl name未定义时，缺省为ctl
+		//         form widget的后继子widget，缺省根据数据类型自动选择
+		// css:    指定控件特定样式
+		//         应用不能指定class，可以根据class的命名规范，直接重载class定义
+		//         class固定为 "ovo-<control name> ovo-<scene name>-<control name> <custom skin name>-ovo-<control name> <custom skin name>-ovo-<scene name>-<control name> "
+		//         缺省没有特定样式
+		// datum:  widget对应的数据对象
+		//         字符串，表达式，
+		//           指定source data数据中的数据对象全路径索引，空字符串表示整个source data数据
+		//           或指定上一级widget的datum数据中的相对路径索引，以"_."开头
+		//           或简单的表达式
+		//         对象形式，widget对应的数据对象，用于存储layout自定义的私有静态数据
+		//           下级widget需要使用其中数据时，路径索引以"_."开头，不能共享于非下级widget
+		//         缺省（undefined，null）与上一级widget的datum一致，顶级widget缺省为整个source data数据
+		//         * 从控件接收到change事件时，将用新的数据值更新该数据对象的[field]字段
+		//         ---返回的对象保存在 ova.this.wdatum
+		// field:  widget对应的数据对象（datum）的字段
+		//         字符串，字段名
+		//         缺省（undefined，null, ""）与上级widget一致，顶级widget缺省为空字符串，表示整个datum数据对象
+		//         * 从控件接收到change事件时，将用新的数据值更新[datum]数据对象的该字段
+		// attr:   字段属性名
+		//         对应于schema定义中的字段属性，包括 name("")，type(string)，require(false)，unique(false)，default(type)，label(name)，title(name)，desc("")
+		//         缺省（undefined，null, ""）为default
+		// value:  缺省数据值，静态值，可以是字符串，数值，对象，数组类型
+		//         对应于data[datum][field]的数据值
+		//           缺省（undefined，null）为空字符串
+		//         或对应于schema定义中的字段属性值
+		//           缺省值：name("")，type(string)，require(false)，unique(false)，default(type)，label(name)，title(name)，desc("")
+		// exprs:  控件显示value前，对数据进行转换处理的表达式
+		//         $value表示原始数据值，即通过[datum][field]计算得到的值或value值
+		//          如："marshal($value)",
+		//         缺省（undefined）表示直接使用原始数据值
+		// assem:  赋值前，对数据进行转换处理的表达式
+		//         * 处理后的数据值将用于更新[datum]数据对象的[field]字段
+		//         $value表示从控件接收到的原始数据值
+		//          如："unmarshal($value)",
+		//         缺省（undefined）表示直接使用原始数据值
+		
+		//原来的exprs太复杂了，直接明确分开写在exprs assem
+		//XXX exprs: 表达式
+		//        字符串形式为datum.field.attr的组合表达式，也可以执行简单的javascript
+		//         如："session.name"，"session.name.type"
+		//        对象形式，可以分别设置取值表示式和赋值表达式，赋值表达式中用$value表示新值
+		//         如：{
+		//                 get: "session.data.key",
+		//                 set: "session.data.key=$value",
+		//             },
+		//        如果同时指定了datum，field，attr，exprs，取值和赋值时以exprs定义为准，datum、field定义仍然可以继续向下级widget传递
+		//        缺省（undefined，null, "", {}）不使用组合表达式
+		
+		
+		// items:  子widget定义
+		//         数组形式：
+		//           元素为对象形式，表示一个子widget定义
+		//           元素为字符串形式，表示一个子widget定义的field内容，
+		//         缺省（undefined，null）为空数组[]
+		// 其它字段由对应的control解释，详见各control的说明
+		//   如: {
+		//           ctl: "grid",
+		//           cols: 3, //网格列数
+		//       },
+		//       {
+		//           ctl: "widget",
+		//           layout: "simple", //引用layout中的其它widget定义
+		//       },
+		//
+		css: {
+			// flex-direction flex-wrap flex-flow justify-content align-items align-content
+			// 控件自定义的样式
+		},
+		items: [
+			{
+				// normal ctl default is box
+			},
+			{
+				ctl: "",
+				css: {},
+				datum: "session.data",
+				field: "map",
+				attr:  "default",
+				value: { name: "value" },
+				exprs: "$value.name",
+				assem: "{name:$value}",
+				},
+				items: [],
+			},
+			{
+				import: "utilities.json", //引用其它文件中的layout
+				widget: "simple", //引用layout中的其它widget定义
+			},
+		],
+	},
+	
+	// 简化形式，通过form控件实现，易于通过schema自动生成，使用缺省样式
+	simple: {
+		ctl: "form",
+		datum: "session",
+		items: [
+			"id", //id字段缺省ctl为只读字符串 rostring
+			"name",
+			"value", //form 缺省根据数据类型自动选择，数值、字符串、日期、列表、表格、子表单...
+			"desc",
+			"from",
+			"to",
+			"time",
+			{
+				// 特殊字段,强制设置字段ctl，与普通widget无异
+				ctl: "rostring",
+				field: "user",
+			}
+		],
+	},
+}
